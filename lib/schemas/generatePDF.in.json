@@ -1,0 +1,26 @@
+{
+    "type": "object",
+    "properties": {
+        "template_id": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "data": {
+                    "type": "object"
+                },
+                "metadata": {
+                    "type": "object"
+                },
+                "test": {
+                    "type": "boolean"
+                }
+            },
+            "required": [
+                "data"
+            ],
+            "type": "object"
+        }
+    }
+}

@@ -1,0 +1,153 @@
+{
+    "title": "API V1",
+    "docsUrl": "",
+    "url": "https://api.apis.guru/v2/specs/formapi.io/v1/swagger.json",
+    "envVars": {},
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "https://formapi.io/api/v1",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            },
+            "username": {
+                "label": "Username (basic)",
+                "viewClass": "TextFieldView"
+            },
+            "password": {
+                "label": "Password (basic)",
+                "viewClass": "TextFieldView"
+            }
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "testAuthentication": {
+            "main": "./lib/actions/testAuthentication.js",
+            "title": "Test Authentication",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/testAuthentication.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "combineSubmissions": {
+            "main": "./lib/actions/combineSubmissions.js",
+            "title": "Merge generated PDFs together",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/combineSubmissions.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "expireCombinedSubmission": {
+            "main": "./lib/actions/expireCombinedSubmission.js",
+            "title": "Expire a combined submission",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/expireCombinedSubmission.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getCombinedSubmission": {
+            "main": "./lib/actions/getCombinedSubmission.js",
+            "title": "Check the status of a combined submission (merged PDFs)",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getCombinedSubmission.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "expireSubmission": {
+            "main": "./lib/actions/expireSubmission.js",
+            "title": "Expire a PDF submission",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/expireSubmission.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getSubmission": {
+            "main": "./lib/actions/getSubmission.js",
+            "title": "Check the status of a PDF",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getSubmission.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "generatePDF": {
+            "main": "./lib/actions/generatePDF.js",
+            "title": "Generates a new PDF",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/generatePDF.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}

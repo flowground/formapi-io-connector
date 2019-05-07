@@ -1,0 +1,28 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "properties": {
+                "expires_in": {
+                    "type": "number"
+                },
+                "metadata": {
+                    "type": "object"
+                },
+                "submission_ids": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "test": {
+                    "type": "boolean"
+                }
+            },
+            "required": [
+                "submission_ids"
+            ],
+            "type": "object"
+        }
+    }
+}
